@@ -2,7 +2,7 @@ const SCALE = 20;
 
 function createElement(type, className){
     let element = document.createElement(type);
-    if (className!==undefined) element.classname = className;
+    if (className!==undefined) element.className = className;
     return element;
 }
 
