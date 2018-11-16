@@ -5,6 +5,8 @@ const ACTORS = {
 function Level(plan){
     this.width = plan[0].length;
     this.heigth = plan.length;
+    this.status=null;
+    this.finishDelay=null;
 
     this.grid = [];
     this.actors = [];
@@ -26,4 +28,8 @@ function Level(plan){
         this.grid.push(gridLine);
     }
     //console.log(this.grid);
+}
+
+Level.prototype.isFinished = function () {
+    return ((this.status!=null) & (this.finishDelay<0));
 }

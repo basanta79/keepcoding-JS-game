@@ -26,3 +26,8 @@ DOMDisplay.prototype.drawBackground = function(){
     return table;
         
 }
+
+DOMDisplay.prototype.drawActors = function () {
+    let actorWrap = createElement('div');
+    this.level.actors.map();
+}
