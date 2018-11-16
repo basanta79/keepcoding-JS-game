@@ -1,6 +1,6 @@
 const ACTORS = {
     'o' : Coin
-}
+};
 
 function Level(plan){
     this.width = plan[0].length;
@@ -17,7 +17,7 @@ function Level(plan){
             let characterType = null;
 
             let Actor = ACTORS[character];
-            if (Actor) this.push(new Actor(new Vector(x,y), character))
+            if (Actor) {this.actors.push(new Actor(new Vector(x,y), character))};
             if (character==='x') characterType= 'wall';
             else if (character==='!') characterType= 'lava';
 
