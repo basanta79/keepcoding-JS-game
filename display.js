@@ -11,6 +11,9 @@ function DOMDisplay(parent, level){
     this.level = level;
     
     this.wrap.appendChild(this.drawBackground());
+    //this.wrap.appendChild(this.drawActors());
+    this.actorsLayer = null;
+    this.drawFrame();
 }
 
 DOMDisplay.prototype.drawBackground = function(){
@@ -28,6 +31,26 @@ DOMDisplay.prototype.drawBackground = function(){
 }
 
 DOMDisplay.prototype.drawActors = function () {
-    let actorWrap = createElement('div');
-    this.level.actors.map();
+    let actorsWrap = createElement('div');
+    this.level.actors.map(actor => {
+        let actorElement = createElement('div', `actor ${actor.type}`);
+        let rect = actorsWrap.appendChild(actorElement);
+        rect.style.width =actor.size.x * SCALE + 'px';
+        rect.style.height =actor.size.y *  SCALE + 'px';
+        rect.style.left = actor.position.x * SCALE + 'px';
+        rect.style.top = actor.position.y * SCALE + 'px';
+        
+    });
+    return actorsWrap;
+}
+
+DOMDisplay.prototype.drawFrame = function () {
+    if (this.actorsLayer != null) this.wrap.removeChild(this.actorsLayer);
+    this.actorsLayer = this.wrap.appendChild(this.drawActors());
+    this.wrap.className = 'game ' + (this.level.status || '');
+
+}
+
+DOMDisplay.prototype.clear = function () {
+    this.wrap.parentNode.removeChild(this.wrap);
 }

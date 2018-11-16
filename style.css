@@ -1,6 +1,6 @@
 .game{
     max-width: 600px;
-    max-width: 450px;
+    max-height: 450px;
     position: relative;
     overflow: hidden;
 }
@@ -21,4 +21,16 @@
 
 .wall {
     background: white;
+}
+
+.actor {
+    position: absolute;
+}
+
+.coin {
+    background : rgb(240, 230, 90);
+}
+
+.player {
+    background : rgb(70,70,70);
 }
